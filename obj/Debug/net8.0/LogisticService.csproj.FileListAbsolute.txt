@@ -128,3 +128,12 @@ C:\Users\user\source\repos\LogisticService\obj\Debug\net8.0\refint\LogisticServi
 C:\Users\user\source\repos\LogisticService\obj\Debug\net8.0\LogisticService.pdb
 C:\Users\user\source\repos\LogisticService\obj\Debug\net8.0\LogisticService.genruntimeconfig.cache
 C:\Users\user\source\repos\LogisticService\obj\Debug\net8.0\ref\LogisticService.dll
+C:\Users\Asus\source\LogisticService\obj\Debug\net8.0\LogisticService.csproj.AssemblyReference.cache
+C:\Users\Asus\source\LogisticService\obj\Debug\net8.0\LogisticService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\source\LogisticService\obj\Debug\net8.0\LogisticService.AssemblyInfoInputs.cache
+C:\Users\Asus\source\LogisticService\obj\Debug\net8.0\LogisticService.AssemblyInfo.cs
+C:\Users\Asus\source\LogisticService\obj\Debug\net8.0\LogisticService.csproj.CoreCompileInputs.cache
+C:\Users\Asus\source\LogisticService\obj\Debug\net8.0\LogisticService.sourcelink.json
+C:\Users\Asus\source\LogisticService\obj\Debug\net8.0\LogisticService.dll
+C:\Users\Asus\source\LogisticService\obj\Debug\net8.0\refint\LogisticService.dll
+C:\Users\Asus\source\LogisticService\obj\Debug\net8.0\LogisticService.pdb
