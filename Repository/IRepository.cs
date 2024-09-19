@@ -8,6 +8,7 @@ namespace LogisticService.Repository
 		void Update(TEntity entity);
 		void Delete(TKey key);
 		IQueryable<TEntity> GetAll();
-		TEntity GetItemByKey(TKey key);
+		TEntity Get(TKey key, string columnName);
+		TEntity Get1(TKey key, TKey key2);
 	}
 }

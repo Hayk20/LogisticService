@@ -7,9 +7,9 @@ namespace LogisticService.Repository
 	{
 		private readonly TDataContext _context;
 
-		public Repository(TDataContext context)
+		public Repository()
 		{
-			_context = context;
+			_context = new TDataContext();
 		}
 
 		public void Add(TEntity entity)
@@ -29,14 +29,23 @@ namespace LogisticService.Repository
 			return _context.Set<TEntity>();
 		}
 
-		public TEntity GetItemByKey(TKey key)
+		public TEntity Get(TKey key, string columnName)
 		{
-			return (TEntity)_context.Find(key?.GetType(), key)!;
+			return _context.Set<TEntity>()
+				.SingleOrDefault(e => EF.Property<TKey>(e, $"{columnName}")!.Equals(key))!;
 		}
+
+		public TEntity Get1(TKey key, TKey key2)
+		{
+			return _context.Set<TEntity>()
+				.SingleOrDefault(e => EF.Property<TKey>(e, "StartingPoint")!.Equals(key) &&
+				EF.Property<TKey>(e, "Destination")!.Equals(key2))!;
+		}	
 
 		public void Update(TEntity entity)
 		{
 			_context.Set<TEntity>().Update(entity);
 		}
+
 	}
 }
