@@ -35,7 +35,7 @@ namespace LogisticService.Repository
 				.SingleOrDefault(e => EF.Property<TKey>(e, $"{columnName}")!.Equals(key))!;
 		}
 
-		public TEntity Get1(TKey key, TKey key2)
+		public TEntity Get(TKey key, TKey key2)
 		{
 			return _context.Set<TEntity>()
 				.SingleOrDefault(e => EF.Property<TKey>(e, "StartingPoint")!.Equals(key) &&

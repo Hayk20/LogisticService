@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LogisticService.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240912161326_initial")]
+    [Migration("20240921063329_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -51,6 +51,9 @@ namespace LogisticService.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<double>("Coefficient")
+                        .HasColumnType("float");
+
                     b.Property<bool>("IsOpen")
                         .HasColumnType("bit");
 
@@ -78,6 +81,22 @@ namespace LogisticService.Migrations
                     b.ToTable("CrushedCars");
                 });
 
+            modelBuilder.Entity("LogisticService.Models.PricePerKilometer", b =>
+                {
+                    b.Property<int>("PricePerKilometerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PricePerKilometerId"));
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.HasKey("PricePerKilometerId");
+
+                    b.ToTable("PricePerKilometer");
+                });
+
             modelBuilder.Entity("LogisticService.Models.Route", b =>
                 {
                     b.Property<int>("Id")
@@ -90,8 +109,14 @@ namespace LogisticService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Distance")
+                        .HasColumnType("int");
+
                     b.Property<double>("Price")
                         .HasColumnType("float");
+
+                    b.Property<int>("PricePerKilometerId")
+                        .HasColumnType("int");
 
                     b.Property<string>("StartingPoint")
                         .IsRequired()
@@ -99,7 +124,25 @@ namespace LogisticService.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("PricePerKilometerId");
+
                     b.ToTable("Routes");
+                });
+
+            modelBuilder.Entity("LogisticService.Models.Route", b =>
+                {
+                    b.HasOne("LogisticService.Models.PricePerKilometer", "PricePerKilometer")
+                        .WithMany("Routes")
+                        .HasForeignKey("PricePerKilometerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PricePerKilometer");
+                });
+
+            modelBuilder.Entity("LogisticService.Models.PricePerKilometer", b =>
+                {
+                    b.Navigation("Routes");
                 });
 #pragma warning restore 612, 618
         }

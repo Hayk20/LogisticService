@@ -11,10 +11,10 @@ namespace LogisticService.Calculations
 	{
 		public CalculationModel(CarType carType, Container container, CrushedCar crashedCar, Route route)
 		{
-			this.CarType = carType;
-			this.Container = container;
-			this.CrashedCar = crashedCar;
-			this.Route = route;
+			CarType = carType;
+			Container = container;
+			CrashedCar = crashedCar;
+			Route = route;
 		}
 
 		public CarType CarType { get; set; }

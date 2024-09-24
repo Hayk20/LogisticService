@@ -2,6 +2,6 @@
 {
 	internal interface ILogisticService
 	{
-		double GetPrice(LogisticModel model);
+		double GetFixedPrice(LogisticModel model);
 	}
 }

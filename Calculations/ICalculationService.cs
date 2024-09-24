@@ -10,7 +10,7 @@ namespace LogisticService.Calculations
 {
     interface ICalculationService
     {
-     //  double CalculatePrice(CarType car, Container container, CrushedCar crashedcar, Route route);
        double CalculatePrice(CalculationModel calculatationModel);
+        // add calculate with no fixed price
     }
 }

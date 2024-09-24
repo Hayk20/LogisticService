@@ -3,7 +3,7 @@ using LogisticService.Models;
 
 namespace LogisticService.Calculations
 {
-	public class Calculation : ICalculationService
+	public class CalculationService : ICalculationService
 	{
 		public double CalculatePrice(CalculationModel calculatationModel)
 		{

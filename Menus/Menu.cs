@@ -1,6 +1,6 @@
 ﻿namespace LogisticService.Menus
 {
-	internal class Menu
+	public class Menu
 	{
 
 

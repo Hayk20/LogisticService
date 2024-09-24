@@ -12,7 +12,6 @@ namespace LogisticService.LogisticService
 {
 	internal class LogisticService : ILogisticService
 	{
-
 		private readonly IRepository<Route, string, DataContext>? _routeRepository;
 		private readonly IRepository<CarType, string, DataContext>? _carTypeRepository;
 		private readonly IRepository<Container, bool, DataContext>? _containerRepository;
@@ -34,12 +33,12 @@ namespace LogisticService.LogisticService
 			_calculationService = calculationService;
 		}
 
-		public double GetPrice(LogisticModel model)
+		public double GetFixedPrice(LogisticModel model)
 		{
 			var carType = _carTypeRepository?.Get(model.CarType, "BodyType");
 			var container = _containerRepository?.Get(model.IsOpen, "IsOpen");
 			var crashedCar = _crushedCarRepository?.Get(model.IsCrushed, "IsCrushed");
-			var route = _routeRepository?.Get1(model.From, model.To);
+			var route = _routeRepository?.Get(key1: model.From, key2: model.To);
 			return _calculationService.CalculatePrice(new CalculationModel(carType!, container!, crashedCar!, route!));
 		}
 	}

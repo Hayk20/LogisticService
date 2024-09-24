@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LogisticService.LogisticService
 {
-	internal class LogisticModel
+	public class LogisticModel
 	{
 		public LogisticModel(string carType, bool isOpen, bool isCrushed, string from, string to)
 		{
@@ -20,9 +20,9 @@ namespace LogisticService.LogisticService
 
 		public string CarType { get; set; }
 		public bool IsOpen { get; set; }
-        public bool IsCrushed { get; set; }
-        public string From { get; set; }
-        public string To { get; set; }
+		public bool IsCrushed { get; set; }
+		public string From { get; set; }
+		public string To { get; set; }
 
-    }
+	}
 }
